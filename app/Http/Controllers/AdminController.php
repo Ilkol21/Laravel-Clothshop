@@ -454,5 +454,63 @@ class AdminController extends Controller
         $slides = Slide::orderby('id', 'DESC')->paginate(12);
         return view('admin.slides',compact('slides'));
     }
+    public function slide_add()
+    {
+        return view('admin.slide-add');
+    }
+    public function slide_store(Request $request)
+    {
+        // Валидация данных
+        $request->validate([
+            'tagline' => 'required',
+            'title' => 'required',
+            'subtitle' => 'required',
+            'link' => 'required',
+            'status' => 'required',
+            'image' => 'required|mimes:png,jpg,jpeg|max:2048'
+        ]);
+
+        // Создание нового объекта слайд
+        $slide = new Slide();
+        $slide->tagline = $request->tagline;
+        $slide->title = $request->title;
+        $slide->subtitle = $request->subtitle;
+        $slide->link = $request->link;
+        $slide->status = $request->status;
+
+        // Получаем файл изображения
+        $image = $request->file('image');
+
+        // Получаем расширение из MIME типа
+        $file_extention = $image->file('image')->extention(); // Получаем оригинальное расширение файла
+
+        // Генерируем уникальное имя для файла
+        $file_name = Carbon::now()->timestamp . '.' . $file_extention;
+
+        // Генерируем миниатюру изображения
+        $this->GenerateSlideThumbnailImage($image, $file_name);
+
+        // Сохраняем имя изображения в базе данных
+        $slide->image = $file_name;
+        $slide->save();
+
+        // Перенаправляем с сообщением об успехе
+        return redirect()->route('admin.slides')->with("status", "Slide added successfully");
+    }
+
+    public function GenerateSlideThumbnailImage($image, $imageName)
+    {
+        $destinationPath = public_path('uploads/slides');
+
+        // Чтение изображения с использованием библиотеки Image (например, Intervention Image)
+        $img = Image::read($image->path());  // Используйте Image::make(), а не Image::read(), если используете Intervention Image
+        $img->cover(400, 690, "top");  // Обрезаем изображение
+        $img->resize(400, 690, function ($constraint) {
+            $constraint->aspectRatio();  // Сохраняем пропорции
+        });
+
+        // Сохраняем изображение по нужному пути
+        $img->save($destinationPath . '/' . $imageName);
+    }
 
 }

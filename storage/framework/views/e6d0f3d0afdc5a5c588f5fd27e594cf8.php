@@ -1,12 +1,11 @@
-@extends('layouts.admin')
-@section('content')
+<?php $__env->startSection('content'); ?>
     <div class="main-content-inner">
         <div class="main-content-wrap">
             <div class="flex items-center flex-wrap justify-between gap20 mb-27">
                 <h3>Slides</h3>
                 <ul class="breadcrumbs flex items-center flex-wrap justify-start gap10">
                     <li>
-                        <a href="{{route('admin.index')}}">
+                        <a href="<?php echo e(route('admin.index')); ?>">
                             <div class="text-tiny">Dashboard</div>
                         </a>
                     </li>
@@ -32,7 +31,7 @@
                             </div>
                         </form>
                     </div>
-                    <a class="tf-button style-1 w208" href="{{route('admin.slide.add')}}"><i
+                    <a class="tf-button style-1 w208" href="<?php echo e(route('admin.slide.add')); ?>"><i
                             class="icon-plus"></i>Add new</a>
                 </div>
                 <div class="wg-table table-all-user">
@@ -49,18 +48,18 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($slides as $slide)
+                        <?php $__currentLoopData = $slides; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $slide): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <tr>
-                            <td>{{$slide->id}}</td>
+                            <td><?php echo e($slide->id); ?></td>
                             <td class="pname">
                                 <div class="image">
-                                    <img src="{{asset('uploads/slides')}}/{{$slide->image}}" alt="" class="{{$slide->title}}">
+                                    <img src="<?php echo e(asset('uploads/slides')); ?>/<?php echo e($slide->image); ?>" alt="" class="<?php echo e($slide->title); ?>">
                                 </div>
                             </td>
-                            <td>{{$slide->tagline}}</td>
-                            <td>{{$slide->title}}</td>
-                            <td>{{$slide->subtitle}}</td>
-                            <td>{{$slide->link}}</td>
+                            <td><?php echo e($slide->tagline); ?></td>
+                            <td><?php echo e($slide->title); ?></td>
+                            <td><?php echo e($slide->subtitle); ?></td>
+                            <td><?php echo e($slide->link); ?></td>
                             <td>
                                 <div class="list-icon-function">
                                     <a href="#">
@@ -77,15 +76,18 @@
                                 </div>
                             </td>
                         </tr>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </tbody>
                     </table>
                 </div>
                 <div class="divider"></div>
                 <div class="flex items-center justify-between flex-wrap gap10 wgp-pagination">
-                    {{$slides->links('pagination::bootstrap-5')}}
+                    <?php echo e($slides->links('pagination::bootstrap-5')); ?>
+
                 </div>
             </div>
         </div>
     </div>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.admin', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH /var/www/html/resources/views/admin/slides.blade.php ENDPATH**/ ?>

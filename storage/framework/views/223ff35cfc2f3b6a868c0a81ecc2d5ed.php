@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <title>Surfside Media</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="surfside media" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/animation.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('font/fonts.css')}}">
-    <link rel="stylesheet" href="{{ asset('icon/style.css')}}">
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('images/favicon.ico')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/sweetalert.min.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/custom.css')}}">
-    @stack('styles')
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/animate.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/animation.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/bootstrap-select.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/style.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('font/fonts.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('icon/style.css')); ?>">
+    <link rel="shortcut icon" href="<?php echo e(asset('images/favicon.ico')); ?>">
+    <link rel="apple-touch-icon-precomposed" href="<?php echo e(asset('images/favicon.ico')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/sweetalert.min.css')); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo e(asset('css/custom.css')); ?>">
+    <?php echo $__env->yieldPushContent('styles'); ?>
 </head>
 
 
@@ -34,9 +34,9 @@
 
             <div class="section-menu-left">
                 <div class="box-logo">
-                    <a href="{{route('admin.index')}}" id="site-logo-inner">
-                        <img class="" id="logo_header_1" alt="" src="{{asset('images/logo/logo.png')}}"
-                             data-light="{{asset('images/logo/logo.png')}}" data-dark="{{asset('images/logo/logo.png')}}">
+                    <a href="<?php echo e(route('admin.index')); ?>" id="site-logo-inner">
+                        <img class="" id="logo_header_1" alt="" src="<?php echo e(asset('images/logo/logo.png')); ?>"
+                             data-light="<?php echo e(asset('images/logo/logo.png')); ?>" data-dark="<?php echo e(asset('images/logo/logo.png')); ?>">
                     </a>
                     <div class="button-show-hide">
                         <i class="icon-menu-left"></i>
@@ -47,7 +47,7 @@
                         <div class="center-heading">Main Home</div>
                         <ul class="menu-list">
                             <li class="menu-item">
-                                <a href="{{route('admin.index')}}" class="">
+                                <a href="<?php echo e(route('admin.index')); ?>" class="">
                                     <div class="icon"><i class="icon-grid"></i></div>
                                     <div class="text">Dashboard</div>
                                 </a>
@@ -63,12 +63,12 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.product.add')}}" class="">
+                                        <a href="<?php echo e(route('admin.product.add')); ?>" class="">
                                             <div class="text">Add Product</div>
                                         </a>
                                     </li>
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.products')}}" class="">
+                                        <a href="<?php echo e(route('admin.products')); ?>" class="">
                                             <div class="text">Products</div>
                                         </a>
                                     </li>
@@ -81,12 +81,12 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.brand.add')}}" class="">
+                                        <a href="<?php echo e(route('admin.brand.add')); ?>" class="">
                                             <div class="text">New Brand</div>
                                         </a>
                                     </li>
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.brands')}}" class="">
+                                        <a href="<?php echo e(route('admin.brands')); ?>" class="">
                                             <div class="text">Brands</div>
                                         </a>
                                     </li>
@@ -99,12 +99,12 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.category.add')}}" class="">
+                                        <a href="<?php echo e(route('admin.category.add')); ?>" class="">
                                             <div class="text">New Category</div>
                                         </a>
                                     </li>
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.categories')}}" class="">
+                                        <a href="<?php echo e(route('admin.categories')); ?>" class="">
                                             <div class="text">Categories</div>
                                         </a>
                                     </li>
@@ -118,7 +118,7 @@
                                 </a>
                                 <ul class="sub-menu">
                                     <li class="sub-menu-item">
-                                        <a href="{{route('admin.orders')}}" class="">
+                                        <a href="<?php echo e(route('admin.orders')); ?>" class="">
                                             <div class="text">Orders</div>
                                         </a>
                                     </li>
@@ -130,13 +130,13 @@
                                 </ul>
                             </li>
                             <li class="menu-item">
-                                <a href="{{route('admin.slides')}}" class="">
+                                <a href="<?php echo e(route('admin.slides')); ?>" class="">
                                     <div class="icon"><i class="icon-image"></i></div>
                                     <div class="text">Slider</div>
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <a href="{{route('admin.coupons')}}" class="">
+                                <a href="<?php echo e(route('admin.coupons')); ?>" class="">
                                     <div class="icon"><i class="icon-grid"></i></div>
                                     <div class="text">Coupns</div>
                                 </a>
@@ -156,9 +156,9 @@
                                 </a>
                             </li>
                             <li class="menu-item">
-                                <form method="POST" action="{{route('logout')}}" id="logout-form">
-                                @csrf
-                                    <a href="{{route('logout')}}" class="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                <form method="POST" action="<?php echo e(route('logout')); ?>" id="logout-form">
+                                <?php echo csrf_field(); ?>
+                                    <a href="<?php echo e(route('logout')); ?>" class="" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                     <div class="icon"><i class="icon-settings"></i></div>
                                     <div class="text">Logout</div>
                                 </a>
@@ -450,7 +450,7 @@
                 </div>
                 <div class="main-content">
 
-                    @yield('content')
+                    <?php echo $__env->yieldContent('content'); ?>
 
 
                     <div class="bottom-page">
@@ -463,12 +463,12 @@
     </div>
 </div>
 
-<script src="{{ asset('js/jquery.min.js')}}"></script>
-<script src="{{ asset('js/bootstrap.min.js')}}"></script>
-<script src="{{ asset('js/bootstrap-select.min.js')}}"></script>
-<script src="{{ asset('js/sweetalert.min.js')}}"></script>
-<script src="{{ asset('js/apexcharts/apexcharts.js')}}"></script>
-<script src="{{ asset('js/main.js')}}"></script>
+<script src="<?php echo e(asset('js/jquery.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/bootstrap-select.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/sweetalert.min.js')); ?>"></script>
+<script src="<?php echo e(asset('js/apexcharts/apexcharts.js')); ?>"></script>
+<script src="<?php echo e(asset('js/main.js')); ?>"></script>
 <script>
     (function ($) {
 
@@ -567,7 +567,8 @@
         jQuery(window).on("resize", function () { });
     })(jQuery);
 </script>
-@stack('scripts')
+<?php echo $__env->yieldPushContent('scripts'); ?>
 </body>
 </html>
 
+<?php /**PATH /var/www/html/resources/views/layouts/admin.blade.php ENDPATH**/ ?>
